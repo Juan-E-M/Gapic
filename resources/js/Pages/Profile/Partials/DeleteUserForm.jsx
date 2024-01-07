@@ -49,7 +49,7 @@ export default function DeleteUserForm({ className }) {
                 <h2 className="text-lg font-medium text-gray-900">Eliminar cuenta</h2>
 
                 <p className="mt-1 text-sm text-gray-600">
-                    Una vez elimindad ya no se puede reestablecer
+                    Una vez eliminada ya no se puede reestablecer
                 </p>
             </header>
 

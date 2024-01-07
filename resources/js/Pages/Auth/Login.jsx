@@ -27,7 +27,7 @@ export default function Login({ status, canResetPassword }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('login'));
+        post(route('acceso'));
     };
 
     return (
@@ -79,7 +79,7 @@ export default function Login({ status, canResetPassword }) {
 
                 <div className="flex items-center justify-end mt-4">
                     <PrimaryButton className="ml-4" disabled={processing}>
-                        Log In
+                        Iniciar Sesión
                     </PrimaryButton>
                 </div>
             </form>

@@ -19,8 +19,8 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        'canLogin' => Route::has('acceso'),
+        'canRegister' => Route::has('registro'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
@@ -31,14 +31,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/perfil', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/perfil', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/perfil', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     
-    Route::get('/autosurvey', [AutosurveyController::class, 'autosurvey'])->name('autosurvey.index');
-    Route::post('/autosurvey/store', [AutosurveyController::class, 'autosurvey_store'])->name('autosurvey.store');
-    Route::get('/autosurvey/information/{user_id}', [AutosurveyController::class, 'autosurvey_information'])->name('autosurvey.information');
+    Route::get('/autoevaluacion', [AutosurveyController::class, 'autosurvey'])->name('autosurvey.index');
+    Route::post('/autoevaluacion/guardar', [AutosurveyController::class, 'autosurvey_store'])->name('autosurvey.store');
+    Route::get('/autoevaluacion/informacion/{user_id}', [AutosurveyController::class, 'autosurvey_information'])->name('autosurvey.information');
 
 
 });

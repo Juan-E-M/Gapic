@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'work_institution' => 'required|string|max:255',
             'college_institution' => 'required|string|max:255',
             'announcement' => 'required|string|max:255',
-            'project' => 'required|string|max:255',
+            'project' => 'required|string',
             'roles' => 'required',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             

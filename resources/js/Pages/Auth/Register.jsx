@@ -47,7 +47,7 @@ export default function Register(props) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        post(route('registro'));
     };
 
     return (
@@ -214,7 +214,7 @@ export default function Register(props) {
                 </div>
 
                 <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                    <InputLabel htmlFor="password" value="Contraseña" />
 
                     <TextInput
                         id="password"
@@ -233,7 +233,7 @@ export default function Register(props) {
                 <div className="mt-4">
                     <InputLabel
                         htmlFor="password_confirmation"
-                        value="Confirm Password"
+                        value="Confirmar contraseña"
                     />
 
                     <TextInput

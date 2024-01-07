@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('work_institution');
             $table->string('college_institution');
             $table->string('announcement');
-            $table->string('project');
+            $table->text('project');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

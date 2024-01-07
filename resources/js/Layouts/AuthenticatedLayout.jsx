@@ -10,14 +10,25 @@ export default function Authenticated({ auth, header, children }) {
         useState(false);
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <>
+        
+        <div className="min-h-screen" style={{ backgroundColor: '#CCCCCC' }}>
             <nav className="bg-white border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between h-16">
+                    <div className="flex justify-between h-17">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
+                                <Link href="/" >
+                                    {/* <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" /> */}
+                                    <img
+                                        className="max-w-full h-auto"
+                                        src="/images/GAPIC_LOGO.png"
+                                        alt="gapic logo"
+                                        style={{
+                                            maxWidth: "70px",
+                                            height: "auto",
+                                        }}
+                                    />
                                 </Link>
                             </div>
 
@@ -34,7 +45,6 @@ export default function Authenticated({ auth, header, children }) {
                                 >
                                     Autoevaluación
                                 </NavLink>
-                                
                             </div>
                         </div>
 
@@ -182,6 +192,14 @@ export default function Authenticated({ auth, header, children }) {
             )}
 
             <main>{children}</main>
+
+
+            
         </div>
+        <footer className="bg-white mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between">
+                <p>Derechos reservados</p>
+                <p>Gestión Administrativa Proyectos De Investigación Financiado Con Canon Y Sobre Canon</p>
+            </footer>
+        </>
     );
 }

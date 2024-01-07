@@ -9,11 +9,11 @@ class Question extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'description'
+        'description',
     ];
 
     public function autosurveys()
     {
-        return $this->belongsToMany(Autosurvey::class, 'question_autosurvey', 'question_id', 'autosurvey_id')->withPivot('answer');    
+        return $this->belongsToMany(Autosurvey::class, 'question_autosurvey', 'question_id', 'autosurvey_id')->withPivot('answer');
     }
 }
