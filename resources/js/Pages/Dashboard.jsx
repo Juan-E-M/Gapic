@@ -76,7 +76,7 @@ export default function Dashboard(props) {
                                 <p>
                                     Participar en GAPIC es sencillo. Regístrate,
                                     accede a libros clave de gestión y realiza
-                                    una autoevaluación con 101 preguntas para
+                                    una autoevaluación con 90 preguntas para
                                     medir tus conocimientos. Te daremos una
                                     calificación hasta vigesimal basada en tus
                                     respuestas.
@@ -85,144 +85,10 @@ export default function Dashboard(props) {
                         </div>
                     </div>
 
-                    <div className="flex gap-11 mb-12">
-                        <div className="w-1/2">
-                            <div className="flex justify-center">
-                                <h6
-                                    className="w-72 text-center p-2 rounded-md"
-                                    style={{
-                                        backgroundColor: "#1B224C",
-                                        color: "#FFFFFF",
-                                    }}
-                                >
-                                    Información de la autoevaluación
-                                </h6>
-                            </div>
-                            <br />
-                            <table
-                                className="w-full border border-collapse text-center "
-                                style={{ backgroundColor: "#f6f4f3" }}
-                            >
-                                <thead>
-                                    <tr>
-                                        <th
-                                            className="p-5 font-bold  border-2 text-gray-700"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Calificación
-                                        </th>
-                                        <th
-                                            className="p-5 font-bold  border-2 text-gray-700"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Rango de Puntaje
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Pésimo
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            0 - 15
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Muy Malo
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            16 - 30
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Malo
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            31 - 45
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Regular
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            46 - 60
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Bueno
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            61 - 75
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Muy Bueno
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            76 - 90
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            Excelente
-                                        </td>
-                                        <td
-                                            className="p-5  border-2"
-                                            style={{ borderColor: "#1B224C" }}
-                                        >
-                                            91 - 101
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="w-1/2 flex flex-col justify-center items-center">
-                            <div className="flex justify-center">
+                    
+                        
+                        <div className="flex flex-col mb-8 px-24 justify-center">
+                            <div className="">
                                 <img
                                     className="mx-auto mb-4 max-w-full h-auto"
                                     src="/images/ICONO.png"
@@ -235,15 +101,14 @@ export default function Dashboard(props) {
                             </div>
                             <div className="text-center">
                                 <p
-                                    className="text-center"
+                                    className="text-center px-24"
                                     style={{ color: "#1B224C" }}
                                 >
-                                    Participar en GAPIC es sencillo. Regístrate,
-                                    accede a libros clave de gestión y realiza
-                                    una autoevaluación con 101 preguntas para
-                                    medir tus conocimientos. Te daremos una
-                                    calificación hasta vigesimal basada en tus
-                                    respuestas.
+                                    ¡Felicidades por unirte a GAPIC! La mejora
+                                    personal está en tus manos. Decídete a
+                                    aprender más y superarte a ti mismo. La
+                                    vasta información en Internet es tu aliada
+                                    para seguir creciendo.
                                 </p>
                                 <br />
                                 <Link
@@ -256,7 +121,7 @@ export default function Dashboard(props) {
                                 </Link>
                             </div>
                         </div>
-                    </div>
+                        
                 </div>
             </div>
         </AuthenticatedLayout>

@@ -1,6 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head, useForm } from "@inertiajs/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const Question = ({ question, i, handleInputChange }) => {
@@ -19,9 +19,9 @@ const Question = ({ question, i, handleInputChange }) => {
             onClick={toggleCheckbox}
         >
             <div className="block text-sm font-bold text-gray-700">
-                {i + 1}.{question.description}
+                {i + 1}. {question.description}
             </div>
-            <input type="checkbox" checked={isChecked}/>
+            <input type="checkbox" checked={isChecked} />
         </div>
     );
 };
@@ -34,11 +34,9 @@ const generateInitialAnswersState = () => {
     return initialAnswers;
 };
 
-
 export default function Autosurvey(props) {
     const { auth, questions } = props;
-
-
+    const [shuffledQuestions, setShuffledQuestions] = useState([]);
 
     const { data, setData, post, processing, errors, reset } = useForm({
         user_id: auth.user.id,
@@ -57,25 +55,29 @@ export default function Autosurvey(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route("autosurvey.store"),
-            {
-                onSuccess: () => {
-                    return Swal.fire({
-                        title: "Éxito",
-                        text: "Autoevaluación completada",
-                        icon: "success",
-                    })
-                },
-            }
-        );
+        post(route("autosurvey.store"), {
+            onSuccess: () => {
+                return Swal.fire({
+                    title: "Éxito",
+                    text: "Autoevaluación completada",
+                    icon: "success",
+                });
+            },
+        });
     };
 
+    useEffect(() => {
+        // Función para barajar el array de preguntas
+        const shuffleQuestions = () => {
+            const shuffled = [...questions].sort(() => Math.random() - 0.5);
+            setShuffledQuestions(shuffled);
+        };
+
+        shuffleQuestions();
+    }, [questions]);
+
     return (
-        <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
-            
-        >
+        <AuthenticatedLayout auth={props.auth} errors={props.errors}>
             <Head title="Autoevaluación" />
 
             <div className="py-12">
@@ -85,7 +87,7 @@ export default function Autosurvey(props) {
                         <br />
                         <form onSubmit={submit}>
                             <div className="grid grid-cols-1 gap-1">
-                                {questions.map((question, i) => (
+                                {shuffledQuestions.map((question, i) => (
                                     <Question
                                         key={i}
                                         question={question}

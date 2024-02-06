@@ -50,4 +50,8 @@ class AutosurveyController extends Controller
             'autosurveys' => $autosurveys,
         ]);
     }
+
+    public function autosurvey_description (){
+        return Inertia::render('Autosurvey/Description');
+    }
 }

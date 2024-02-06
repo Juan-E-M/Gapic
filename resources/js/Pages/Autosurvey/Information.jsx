@@ -6,6 +6,14 @@ export default function Information(props) {
     const { data: autosurveys, links } = usePage().props.autosurveys;
     const { auth, autosurveys_number } = props;
 
+    const intervalOptions = [
+        ['Ecelente', 'De 72 a 90','De 17 a 20', 'Puede formular y gestionar'],
+        ['Sobresaliente', 'De 54 a 72','De 13 a 16', 'Puede tomar decisiones en equipo para formular y gestionar'],
+        ['Notable', 'De 36 a 54','De 9 a 12', 'Puede acompañar a formular y gestionar'],
+        ['Aprobado', 'De 18 a 36','De 5 a 8', 'Debe reforzar más sus conocimientos'],
+        ['Desaprobado', 'De 1 a 18','De 9 a 4', 'No esta listo para formular ni gestionar'],
+    ]
+
     console.log(autosurveys_number);
     console.log(autosurveys);
     console.log(links);
@@ -33,7 +41,7 @@ export default function Information(props) {
             errors={props.errors}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Information de la autoevaluación
+                    Información de la autoevaluación
                 </h2>
             }
         >
@@ -61,7 +69,13 @@ export default function Information(props) {
                                     Realizada
                                 </th>
                                 <th className="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
-                                    Puntaje
+                                    Aciertos
+                                </th>
+                                <th className="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
+                                    Intervalo de respuesta
+                                </th>
+                                <th className="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
+                                    Vigesimal
                                 </th>
                                 <th className="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
                                     Más
@@ -96,6 +110,16 @@ export default function Information(props) {
                                     <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm ">
                                         <p className="text-gray-900 whitespace-no-wrap">
                                             {autosurvey.score}
+                                        </p>
+                                    </td>
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm ">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                            {intervalOptions[getIndex(autosurvey.score)][1]}
+                                        </p>
+                                    </td>
+                                    <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm ">
+                                        <p className="text-gray-900 whitespace-no-wrap">
+                                        {intervalOptions[getIndex(autosurvey.score)][2]}
                                         </p>
                                     </td>
                                     <td className="border-b border-gray-200 bg-white px-5 py-5 text-sm">

@@ -45,6 +45,12 @@ export default function Authenticated({ auth, header, children }) {
                                 >
                                     Autoevaluación
                                 </NavLink>
+                                <NavLink
+                                    href={route("autosurvey.description")}
+                                    active={route().current("autosurvey.description")}
+                                >
+                                    Descripción
+                                </NavLink>
                             </div>
                         </div>
 
@@ -154,6 +160,12 @@ export default function Authenticated({ auth, header, children }) {
                             active={route().current("autosurvey.index")}
                         >
                             Autoevaluación
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route("autosurvey.description")}
+                            active={route().current("autosurvey.description")}
+                        >
+                            Descripción
                         </ResponsiveNavLink>
                     </div>
 

@@ -26,7 +26,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+Route::get('/inicio', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/autoevaluacion', [AutosurveyController::class, 'autosurvey'])->name('autosurvey.index');
     Route::post('/autoevaluacion/guardar', [AutosurveyController::class, 'autosurvey_store'])->name('autosurvey.store');
     Route::get('/autoevaluacion/informacion/{user_id}', [AutosurveyController::class, 'autosurvey_information'])->name('autosurvey.information');
+    Route::get('/autoevaluacion/descripcion', [AutosurveyController::class, 'autosurvey_description'])->name('autosurvey.description');
 
 
 });
