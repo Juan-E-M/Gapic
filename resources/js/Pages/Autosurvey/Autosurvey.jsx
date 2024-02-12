@@ -4,24 +4,23 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 
 const Question = ({ question, i, handleInputChange }) => {
-    const [isChecked, setIsChecked] = useState(false);
-
-    const toggleCheckbox = () => {
-        setIsChecked(!isChecked);
-        handleInputChange(question.id, !isChecked);
-    };
-
     return (
         <div
-            className={`bg-white p-2 rounded shadow-md flex items-center justify-between cursor-pointer ${
-                isChecked ? "bg-gray-200" : ""
-            }`}
-            onClick={toggleCheckbox}
+            className={`bg-white p-2 rounded shadow-md flex items-center justify-between cursor-pointer gap-3`}
         >
             <div className="block text-sm font-bold text-gray-700">
                 {i + 1}. {question.description}
             </div>
-            <input type="checkbox" checked={isChecked} />
+            <select
+                title="Por favor, selecciona una opción"
+                className="appearance-none bg-white border border-gray-400 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-blue-500"
+                name={question.id}
+                onChange={handleInputChange}
+            >
+                <option value="">---</option>
+                <option value="1">V</option>
+                <option value="0">F</option>
+            </select>
         </div>
     );
 };
@@ -29,7 +28,7 @@ const Question = ({ question, i, handleInputChange }) => {
 const generateInitialAnswersState = () => {
     const initialAnswers = {};
     for (let i = 1; i <= 90; i++) {
-        initialAnswers[i] = false;
+        initialAnswers[i] = null;
     }
     return initialAnswers;
 };
@@ -43,14 +42,10 @@ export default function Autosurvey(props) {
         answers: generateInitialAnswersState(),
     });
 
-    const handleInputChange = (questionId, answer) => {
-        setData((prevData) => ({
-            ...prevData,
-            answers: {
-                ...prevData.answers,
-                [questionId]: answer,
-            },
-        }));
+    const handleInputChange = (e) => {
+        let id = e.target.name
+        let value = e.target.value
+        data.answers = {...data.answers, [id]:value}
     };
 
     const submit = (e) => {
@@ -67,14 +62,12 @@ export default function Autosurvey(props) {
     };
 
     useEffect(() => {
-        // Función para barajar el array de preguntas
         const shuffleQuestions = () => {
             const shuffled = [...questions].sort(() => Math.random() - 0.5);
             setShuffledQuestions(shuffled);
         };
-
         shuffleQuestions();
-    }, [questions]);
+    }, []);
 
     return (
         <AuthenticatedLayout auth={props.auth} errors={props.errors}>

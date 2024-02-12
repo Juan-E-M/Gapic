@@ -11,12 +11,9 @@ export default function Information(props) {
         ['Sobresaliente', 'De 54 a 72','De 13 a 16', 'Puede tomar decisiones en equipo para formular y gestionar'],
         ['Notable', 'De 36 a 54','De 9 a 12', 'Puede acompañar a formular y gestionar'],
         ['Aprobado', 'De 18 a 36','De 5 a 8', 'Debe reforzar más sus conocimientos'],
-        ['Desaprobado', 'De 1 a 18','De 9 a 4', 'No esta listo para formular ni gestionar'],
+        ['Desaprobado', 'De 1 a 18','De 0 a 4', 'No esta listo para formular ni gestionar'],
     ]
 
-    console.log(autosurveys_number);
-    console.log(autosurveys);
-    console.log(links);
     function getClassName(active) {
         if (active) {
             return "mr-1 mb-1 px-2 py-2 text-sm leading-4 border rounded hover:bg-blue-200 hover:text-blue-700 focus:border-primary focus:text-primary bg-blue-700 text-white";
@@ -139,7 +136,7 @@ export default function Information(props) {
                     <div className="flex flex-wrap justify-end mt-4 text-sm">
                         {links.map((link, key) =>
                             link.url == null ? (
-                                <div className="mr-1 mb-1 px-2 py-2 text-sm leading-4 text-gray-400 border rounded">
+                                <div key={key} className="mr-1 mb-1 px-2 py-2 text-sm leading-4 text-gray-400 border rounded">
                                     {link.label == "Next &raquo;"
                                         ? ">>"
                                         : link.label == "&laquo; Previous"
@@ -148,6 +145,7 @@ export default function Information(props) {
                                 </div>
                             ) : (
                                 <Link
+                                    key={key}
                                     className={getClassName(link.active)}
                                     href={link.url}
                                 >

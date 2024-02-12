@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('question_autosurvey', function (Blueprint $table) {
             $table->id();
-            $table->boolean('answer');
+            $table->boolean('answer')->nullable();
             $table->unsignedBigInteger('autosurvey_id')->nullable();
             $table->foreign('autosurvey_id')
                 ->references('id')

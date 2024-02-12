@@ -18,11 +18,12 @@ class Autosurvey extends Model
     }
 
     protected $appends = ['score'];
-    public function getScoreAttribute()
-    {
+    public function getScoreAttribute(){
         $totalScore = 0;
         foreach ($this->questions as $question) {
-            $totalScore += $question->pivot->answer == $question->correct_answer ? 1 : 0;
+            if ($question->pivot->answer) {
+                $totalScore += $question->pivot->answer == $question->correct_answer ? 1 : 0;
+            }
         }
         return $totalScore;
     }
